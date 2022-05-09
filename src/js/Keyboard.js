@@ -139,6 +139,11 @@ export default class Keyboard {
         });
       });
     });
+
+    const pLang = createElment('p', 'lang-and-ver');
+    pLang.textContent = 'Смена языка: Alt + Ctrl. Система: Windows 10';
+    virtualKeyboard.append(pLang);
+
     return virtualKeyboard;
   }
 
@@ -185,6 +190,9 @@ export default class Keyboard {
       }
       if (symbol.code === 'Enter') {
         symb = '\n';
+      }
+      if (symbol.code === 'Home') {
+        symb = '';
       }
       this.textarea.value = value.slice(0, start) + symb + value.slice(end);
       start += 1;
