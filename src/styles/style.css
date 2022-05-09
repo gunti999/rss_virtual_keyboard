@@ -32,5 +32,10 @@ textarea {
     width: 50px;
     height: 50px;
     background-color: aliceblue;
+    font-size: 18px;
     cursor: pointer;
+}
+
+.press {
+ background-color: #ffa751;
 }
