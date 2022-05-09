@@ -169,6 +169,11 @@ export default class Keyboard {
       this.chekShiftFlag();
     } else if (symbol.key === 'CapsLock') {
       this.capsOn = !this.capsOn;
+      if (this.capsOn) {
+        button.classList.add('press');
+      } else {
+        button.classList.remove('press');
+      }
       this.chekShiftFlag();
     } else if (symbol.code === 'ControlLeft' || symbol.code === 'ControlRight') {
       this.ctrlOn = true;
@@ -212,7 +217,9 @@ export default class Keyboard {
 
   buttonUnpressed(symbol) {
     const button = this.virtualKeyboard.querySelector(`.${symbol.code}`);
-    button.classList.remove('press');
+    if (symbol.code !== 'CapsLock') {
+      button.classList.remove('press');
+    }
     if (symbol.code === 'ShiftLeft' || symbol.code === 'ShiftRight') {
       this.shiftOn = false;
       this.chekShiftFlag();
@@ -247,7 +254,7 @@ export default class Keyboard {
   }
 
   chekShiftFlag() {
-    const key = this.virtualKeyboard.querySelectorAll(`.key .span-${this.lang} span`);
+    const key = this.virtualKeyboard.querySelectorAll('.key span span');
     let spanClass;
 
     key.forEach((el) => { el.classList.add('hide'); });
