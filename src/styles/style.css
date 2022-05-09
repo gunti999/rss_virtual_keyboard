@@ -34,8 +34,11 @@ textarea {
     background-color: aliceblue;
     font-size: 18px;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 .press {
  background-color: #ffa751;
+ border-radius: 20%;
+ 
 }
